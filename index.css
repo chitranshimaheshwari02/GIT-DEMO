@@ -1,0 +1,898 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --sidebar-bg: #2c3e50;
+  --main-bg: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --light-text-color: #666;
+  --active-item-bg: #4a90e2;
+  --active-item-text: #ffffff;
+  --border-color: #e0e0e0;
+  --green-color: #28a745;
+  --red-color: #dc3545;
+  --orange-color: #ffa500;
+  --patch-compliance-bg: #3f51b5;
+  --performance-chart-fill-color: rgba(74, 144, 226, 0.1);
+  --active-item-bg: #4c74f7;
+  --performance-chart-fill-color: rgba(76, 116, 247, 0.2);
+  --text-color: #333;
+  --light-text-color: #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+  gap: 20px;
+  padding-right: 20px 0 0 100px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: var(--active-item-text);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.main-nav ul {
+  list-style: none;
+}
+
+.main-nav .nav-item {
+  margin-bottom: 5px;
+}
+
+.main-nav .nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav .nav-item a i {
+  margin-right: 15px;
+  font-size: 1.1em;
+}
+
+.main-nav .nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--active-item-text);
+}
+
+.main-nav .nav-item.active a {
+  background-color: var(--active-item-bg);
+  color: var(--active-item-text);
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 0 20px 0 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 15px 25px;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.top-bar .tabs span {
+  margin-right: 25px;
+  font-weight: 500;
+  color: var(--light-text-color);
+  cursor: pointer;
+  position: relative;
+}
+
+.top-bar .tabs span.active {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.top-bar .tabs span.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--active-item-bg);
+  border-radius: 2px;
+}
+
+.top-bar .user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar .user-profile i {
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.top-bar .user-profile .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.top-bar .user-profile span {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 0;
+  align-items: stretch;
+  /* Added for 100% fill */
+  justify-items: stretch;
+  /* Added for 100% fill */
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  /* Added for 100% fill within grid cells */
+}
+
+.card h3 {
+  font-size: 10px;
+  color: var(--light-text-color);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-grid .system-health {
+  grid-column: span 3;
+}
+
+.dashboard-grid .alerts-summary {
+  grid-column: span 1;
+}
+
+.dashboard-grid .patch-compliance {
+  grid-column: span 1;
+  background-color: var(--patch-compliance-bg);
+  color: white;
+}
+
+.dashboard-grid .patch-compliance h3,
+.dashboard-grid .patch-compliance .main-number,
+.dashboard-grid .patch-compliance .percentage {
+  color: white;
+}
+
+.dashboard-grid .patch-compliance canvas {
+  filter: brightness(1.5);
+}
+
+.dashboard-grid .recent-activity {
+  grid-column: span 1;
+}
+
+.dashboard-grid .performance-metrics {
+  grid-column: span 3;
+}
+
+.dashboard-grid .remote-sessions {
+  grid-column: span 1;
+}
+
+.dashboard-grid .software-deployment,
+.dashboard-grid .license-tracker,
+.dashboard-grid .threat-detection {
+  grid-column: span 1;
+}
+
+.system-health {
+  display: flex;
+  flex-direction: column;
+}
+
+.system-health .health-content {
+  display: flex;
+  gap: 12px;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.system-health .health-right-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 25px;
+}
+
+.system-health .progress-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+.system-health .progress-circle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.system-health .progress-bg {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 10;
+}
+
+.system-health .progress-bar {
+  fill: none;
+  stroke: var(--green-color);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform-origin: 60px 60px;
+  transform: rotate(-90deg);
+}
+
+.system-health .progress-text {
+  font-size: 2em;
+  font-weight: 600;
+  fill: var(--text-color);
+  padding-bottom: 50px;
+}
+
+.system-health .progress-label {
+  position: absolute;
+  bottom: 50px;
+  left: 24px;
+  font-size: 0.6em;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.system-health .status-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  min-width: 150px;
+  margin-top: 10px;
+}
+
+.system-health .status-summary p {
+  display: flex;
+  flex-grow: 100%;
+  align-items: center;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.system-health .status-summary .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.system-health .status-summary .online .dot {
+  background-color: var(--green-color);
+}
+
+.system-health .status-summary .offline .dot {
+  background-color: var(--orange-color);
+}
+
+.system-health .chart-container-small {
+  flex-basis: 200px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 150px;
+  margin-top: 10px;
+}
+
+.system-health .chart-container-small h4 {
+  font-size: 0.8em;
+  color: var(--light-text-color);
+  margin-bottom: 80px;
+  white-space: nowrap;
+  padding-left: 150px;
+  margin-left: 50px;
+}
+
+.alerts-summary .summary-content,
+.patch-compliance .summary-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alerts-summary .progress-circle-alert {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.alerts-summary .progress-circle-alert svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.alerts-summary .progress-bg-alert {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 10;
+}
+
+.alerts-summary .progress-bar-alert {
+  fill: none;
+  stroke: var(--active-item-bg);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform-origin: 60px 60px;
+  transform: rotate(-90deg);
+}
+
+.alerts-summary .progress-text-alert {
+  font-size: 2.5em;
+  font-weight: 600;
+  fill: var(--text-color);
+}
+
+.alerts-summary p {
+  color: var(--light-text-color);
+  margin-bottom: 10px;
+}
+
+.alerts-summary .device-status .green {
+  color: var(--green-color);
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.alerts-summary .device-status .red {
+  color: var(--red-color);
+  font-weight: 600;
+}
+
+.system-health {
+  padding-bottom: 40px;
+}
+
+.alerts-summary .summary-content,
+.patch-compliance .summary-content {
+  text-align: center;
+}
+
+.alerts-summary .main-number {
+  font-size: 1em;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.alerts-summary .main-number .circled-number {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--active-item-bg);
+  color: var(--text-color);
+  font-size: 2.5em;
+  font-weight: 700;
+  text-align: left;
+  line-height: 66px;
+  margin: 0;
+  padding: 0;
+}
+
+.patch-compliance .main-number {
+  font-size: 3em;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.alerts-summary p {
+  color: var(--light-text-color);
+}
+
+.alerts-summary .device-status .green {
+  color: var(--green-color);
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.alerts-summary .device-status .red {
+  color: var(--red-color);
+  font-weight: 600;
+}
+
+.patch-compliance .chart-container-small {
+  /* height: 80px; */
+  flex-grow: 1;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.activity-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.activity-list .activity-left-content {
+  display: flex;
+  /* Added for 100% alignment */
+  align-items: center;
+  /* Added for 100% alignment */
+  gap: 10px;
+  /* Added for 100% alignment */
+}
+
+.activity-list .activity-details {
+  margin-left: 0;
+}
+
+.activity-list .activity-details p {
+  font-weight: 500;
+  margin-bottom: 2px;
+  margin: 0;
+  /* Added for 100% spacing control */
+  padding: 0;
+  /* Added for 100% spacing control */
+}
+
+.activity-list .activity-details span {
+  font-size: 0.85em;
+  color: var(--light-text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.session-icon {
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  margin-right: 15px;
+}
+
+.device-performance-metrics .metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.device-performance-metrics .metric-item:last-child {
+  border-bottom: none;
+}
+
+.device-performance-metrics .metric-text-content {
+  flex-shrink: 0;
+  margin-right: 15px;
+  min-width: 120px;
+}
+
+.device-performance-metrics .metric-item p {
+  margin: 0;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.device-performance-metrics .metric-item .percentage {
+  color: var(--active-item-bg);
+  font-weight: bold;
+}
+
+.device-performance-metrics .metric-item canvas {
+  width: 150px;
+  height: 50px;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.card.device-performance-metrics {
+  grid-column: span 3;
+}
+
+.card.remote-sessions {
+  grid-column: span 1;
+}
+
+.session-list {
+  list-style: none;
+  padding: 0;
+}
+
+.session-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.session-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.session-list li i {
+  font-size: 1.1em;
+  color: var(--light-text-color);
+  margin-right: 15px;
+}
+
+.session-list .session-details {
+  flex-grow: 1;
+}
+
+.session-list .session-details p {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.session-list .session-details span {
+  font-size: 0.85em;
+  color: var(--light-text-color);
+}
+
+.session-list .duration {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin-left: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+  background-color: #ccc;
+}
+
+.green-dot {
+  background-color: #4caf50;
+}
+
+#ramUsageChart {
+  height: 120px !important;
+  width: 322px !important;
+}
+#cpuLoadChart {
+  height: 120px !important;
+  width: 321px !important;
+}
+#patchComplianceChart {
+  height: 152px !important;
+  width: 111px !important;
+}
+@media (max-width: 1600px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dashboard-grid .system-health {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .dashboard-grid .alerts-summary {
+    grid-column: span 1;
+    height: 270px;
+  }
+
+  .dashboard-grid .patch-compliance {
+    grid-column: span 1;
+    height: 270px;
+  }
+
+  .dashboard-grid .recent-activity {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .performance-metrics {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+
+  .dashboard-grid .remote-sessions {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .software-deployment,
+  .dashboard-grid .license-tracker,
+  .dashboard-grid .threat-detection {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard-grid .system-health {
+    grid-column: span 3;
+  }
+
+  .dashboard-grid .alerts-summary {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .patch-compliance {
+    grid-column: span 2;
+  }
+
+  .dashboard-grid .recent-activity {
+    grid-column: span 3;
+  }
+
+  .dashboard-grid .performance-metrics {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+
+  .dashboard-grid .remote-sessions {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .software-deployment,
+  .dashboard-grid .license-tracker,
+  .dashboard-grid .threat-detection {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 80px;
+    padding: 20px 0 0 0;
+  }
+
+  .sidebar .logo {
+    font-size: 0;
+    margin-bottom: 20px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .main-nav .nav-item a {
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  .main-nav .nav-item a i {
+    margin-right: 0;
+  }
+
+  .main-nav .nav-item a span {
+    display: none;
+  }
+
+  .main-nav .nav-item.active a {
+    border-radius: 0;
+  }
+
+  .top-bar .tabs span {
+    margin-right: 15px;
+    font-size: 0.9em;
+  }
+
+  .top-bar .user-profile span {
+    display: none;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 15px;
+  }
+
+  .dashboard-grid .system-health {
+    grid-column: span 3;
+  }
+
+  .dashboard-grid .alerts-summary {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .patch-compliance {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .recent-activity {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .performance-metrics {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+
+  .dashboard-grid .remote-sessions {
+    grid-column: span 1;
+  }
+
+  .dashboard-grid .software-deployment,
+  .dashboard-grid .license-tracker,
+  .dashboard-grid .threat-detection {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-right: 0;
+    gap: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: static;
+  }
+
+  .sidebar .logo {
+    font-size: 1.5em;
+    background-image: none;
+    height: auto;
+  }
+
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .main-nav .nav-item {
+    margin: 0 10px 10px 10px;
+  }
+
+  .main-nav .nav-item a {
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+
+  .main-nav .nav-item a i {
+    margin-right: 8px;
+  }
+
+  .main-nav .nav-item a span {
+    display: inline;
+  }
+
+  .main-nav .nav-item.active a {
+    border-radius: 5px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .top-bar .tabs {
+    margin-bottom: 15px;
+  }
+
+  .top-bar .user-profile {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .top-bar .user-profile span {
+    display: inline;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .system-health .health-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .system-health .status-summary {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .system-health .chart-container-small {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 15px;
+  }
+
+  .system-health .progress-circle {
+    margin-bottom: 20px;
+  }
+
+  .system-health .progress-label {
+    top: calc(50% + 30px);
+  }
+}
