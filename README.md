@@ -1,2 +1,2 @@
-#DASBOARD
+DASHBOARD <br>
 This is a responsive system monitoring dashboard built using HTML, CSS, and JavaScript. It presents key system metrics such as device status, performance indicators (CPU and RAM usage), patch compliance, and recent activity logs. The interface includes a modern sidebar layout, modular cards, and data visualizations to simulate a real-world IT monitoring environment. This project was created as part of my frontend development learning and showcases skills in layout structuring, styling, and dynamic data presentation.
