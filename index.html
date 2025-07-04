@@ -14,261 +14,318 @@
   </head>
 
   <body>
-    <div class="container">
-      <aside class="sidebar">
-        <div class="logo"><i class="fas fa-th-large"></i> NetRMM</div>
-        <nav class="main-nav">
-          <ul>
-            <li class="nav-item active">
-              <a href="#"
-                ><i class="fas fa-th-large"></i> <span>Dashboard</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-info-circle"></i>
-                <span>Alerts & Incidents</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-desktop"></i>
-                <span>Devices & Endpoints</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-sync-alt"></i>
-                <span>Network Monitoring</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-file-alt"></i>
-                <span>Patch Management</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-boxes"></i> <span>Software Inventory</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-laptop-code"></i>
-                <span>Remote Access</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"
-                ><i class="fas fa-chart-bar"></i>
-                <span>Reports & Analytics</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a>
-            </li>
-          </ul>
-        </nav>
+    <div id="menu-toggle" class="hamburger" onclick="toggleNavbar()">
+      &#9776;
+    </div>
+    <div class="double-sidebar-container">
+      <aside class="mini-sidebar">
+        <div class="logo-mini"></div>
+        <ul class="mini-nav">
+          <li><i class="fas fa-th-large"></i></li>
+          <li><i class="fas fa-info-circle"></i></li>
+          <li><i class="fas fa-desktop"></i></li>
+          <li><i class="fas fa-sync-alt"></i></li>
+          <li><i class="fas fa-file-alt"></i></li>
+          <li><i class="fas fa-boxes"></i></li>
+          <li><i class="fas fa-laptop-code"></i></li>
+          <li><i class="fas fa-chart-bar"></i></li>
+          <li><i class="fas fa-cog"></i></li>
+        </ul>
       </aside>
+      <div class="container">
+        <aside class="sidebar">
+          <div class="logo"><i class="fas fa-th-large"></i> NetRMM</div>
+          <nav class="main-nav">
+            <ul>
+              <li class="nav-item active">
+                <a href="#"
+                  ><i class="fas fa-th-large"></i> <span>Dashboard</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-info-circle"></i>
+                  <span>Alerts & Incidents</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-desktop"></i>
+                  <span>Devices & Endpoints</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-sync-alt"></i>
+                  <span>Network Monitoring</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-file-alt"></i>
+                  <span>Patch Management</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-boxes"></i>
+                  <span>Software Inventory</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-laptop-code"></i>
+                  <span>Remote Access</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"
+                  ><i class="fas fa-chart-bar"></i>
+                  <span>Reports & Analytics</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
 
-      <main class="main-content">
-        <header class="top-bar">
-          <div class="tabs">
-            <span class="tab active">RMM Dashboard</span>
-            <span class="tab">Device View</span>
-            <span class="tab">Alerts View</span>
-          </div>
-          <div class="user-profile">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-bell"></i>
-            <i class="fas fa-user-circle session-icon"></i>
-            <span>Pravin Singh</span>
-            <i class="fas fa-caret-down"></i>
-          </div>
-        </header>
+        <main class="main-content">
+          <header class="top-bar">
+            <div class="tabs">
+              <span class="tab active">RMM Dashboard</span>
+              <span class="tab">Device View</span>
+              <span class="tab">Alerts View</span>
+            </div>
+            <div class="tab-content" id="device" style="display: none">
+              This is the Device View content.
+            </div>
+            <div class="tab-content" id="alerts" style="display: none">
+              This is the Alerts View content.
+            </div>
 
-        <section class="dashboard-grid">
-          <div class="card system-health">
-            <h3>SYSTEM HEALTH - OVERVIEW</h3>
-            <div class="health-content">
-              <div class="progress-circle">
-                <svg width="150" height="150" viewBox="0 0 150 150">
-                  <circle class="progress-bg" cx="60" cy="60" r="57"></circle>
-                  <circle class="progress-bar" cx="60" cy="60" r="57"></circle>
-                  <text
-                    x="60"
-                    y="60"
-                    text-anchor="middle"
-                    dy="0.5em"
-                    class="progress-text"
-                  >
-                    94%
-                  </text>
-                </svg>
-                <span class="progress-label">Devices online</span>
+            <div class="user-profile" style="position: relative">
+              <i class="fas fa-search"></i>
+              <i class="fas fa-bell"></i>
+              <div class="dropdown" onclick="toggleDropdown()">
+                <i class="fas fa-user-circle session-icon"></i>
+                <span>Pravin Singh</span>
+                <i class="fas fa-caret-down"></i>
+
+                <div class="dropdown-list" id="dropdownList">
+                  <ul>
+                    <li>Pravin Singh</li>
+                    <li>Frontend Developer</li>
+                    <li>email - pravinsingh@gmail.com</li>
+                    <li>Contact - 9898127845</li>
+                  </ul>
+                </div>
               </div>
+            </div>
+          </header>
 
-              <div>
-                <div class="status-summary">
-                  <p class="online">
-                    <span class="dot"></span> Devices Online &nbsp;<span
-                      style="color: #4caf50"
+          <section class="dashboard-grid">
+            <div class="card system-health">
+              <h3>SYSTEM HEALTH - OVERVIEW</h3>
+              <div class="health-content">
+                <div class="progress-circle">
+                  <svg width="150" height="150" viewBox="0 0 150 150">
+                    <circle class="progress-bg" cx="60" cy="60" r="57"></circle>
+                    <circle
+                      class="progress-bar"
+                      cx="60"
+                      cy="60"
+                      r="57"
+                    ></circle>
+                    <text
+                      x="60"
+                      y="60"
+                      text-anchor="middle"
+                      dy="0.5em"
+                      class="progress-text"
                     >
-                      <strong>6%</strong></span
+                      94%
+                    </text>
+                  </svg>
+                  <span class="progress-label"> Device online</span>
+                </div>
+
+                <div>
+                  <div class="status-summary">
+                    <p class="online">
+                      <span class="dot"></span> Devices Online &nbsp;<span
+                        style="color: #4caf50"
+                      >
+                        <strong>6%</strong></span
+                      >
+                    </p>
+                    <p class="offline"><span class="dot"></span> Offline</p>
+                  </div>
+                  <div class="chart-container-small">
+                    <h4>Last 7/8 days</h4>
+                    <canvas
+                      id="healthTrendChart"
+                      width="318px"
+                      height="150px"
+                      margin-top="-50px"
+                    ></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card alerts-summary">
+              <h3>ALERTS SUMMARY</h3>
+              <div class="summary-content">
+                <div class="progress-circle-alert">
+                  <svg width="120" height="120" viewBox="0 0 120 120">
+                    <circle
+                      class="alert-circle-bar"
+                      stroke="var(--active-item-bg)"
+                      stroke-width="8"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                      style="
+                        stroke-dasharray: 477.142;
+                        stroke-dashoffset: 220.4885;
+                      "
+                      transform="rotate(-90 60 60)"
+                    />
+                    <text
+                      x="60"
+                      y="60"
+                      text-anchor="middle"
+                      dy="0.3em"
+                      class="progress-text-alert"
+                    >
+                      78
+                    </text>
+                    <text
+                      class="alert-label-text"
+                      x="50%"
+                      y="70%"
+                      dominant-baseline="middle"
+                      text-anchor="middle"
+                      fill="gray"
+                      font-size="0.8em"
+                    >
+                      Last day
+                    </text>
+                  </svg>
+                </div>
+                <div class="device-status">
+                  <p>
+                    Devices up+date:
+                    <span
+                      style="color: black; font-size: 1.2em; font-weight: 600"
+                      >234</span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span
+                      style="color: black; font-size: 1.2em; font-weight: 600"
+                      >24</span
                     >
                   </p>
-                  <p class="offline"><span class="dot"></span> Offline</p>
                 </div>
+              </div>
+            </div>
+
+            <div class="card patch-compliance">
+              <h3>PATCH COMPLIANCE</h3>
+              <div class="summary-content">
+                <div class="main-number">78%</div>
                 <div class="chart-container-small">
-                  <h4>Last 7/8 days</h4>
                   <canvas
-                    id="healthTrendChart"
-                    width="318px"
-                    height="150px"
-                    margin-top="-50px"
+                    id="patchComplianceChart"
+                    width="117px"
+                    height="32px"
                   ></canvas>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card alerts-summary">
-            <h3>ALERTS SUMMARY</h3>
-            <div class="summary-content">
-              <div class="progress-circle-alert">
-                <svg width="120" height="120" viewBox="0 0 120 120">
-                  <circle
-                    class="alert-circle-bar"
-                    stroke="var(--active-item-bg)"
-                    stroke-width="8"
-                    fill="transparent"
-                    r="52"
-                    cx="60"
-                    cy="60"
-                    style="
-                      stroke-dasharray: 477.142;
-                      stroke-dashoffset: 220.4885;
-                    "
-                    transform="rotate(-90 60 60)"
-                  />
-                  <text
-                    x="60"
-                    y="60"
-                    text-anchor="middle"
-                    dy="0.3em"
-                    class="progress-text-alert"
-                  >
-                    78
-                  </text>
-                  <text
-                    class="alert-label-text"
-                    x="50%"
-                    y="70%"
-                    dominant-baseline="middle"
-                    text-anchor="middle"
-                    fill="gray"
-                    font-size="0.8em"
-                  >
-                    Last day
-                  </text>
-                </svg>
-              </div>
-              <div class="device-status">
-                <p>
-                  Devices up+date:
-                  <strong style="color: black; font-size: 1.2em">234</strong
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong
-                    style="color: black; font-size: 1.2em"
-                    margin-bottom="40px"
-                    >24</strong
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
+            <div class="card recent-activity">
+              <h3>RECENT ACTIVITY</h3>
+              <ul class="activity-list">
+                <li>
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
+                    <div class="activity-details">
+                      <div class="activity-header">
+                        <span class="activity-title">Device rebooted</span>
+                        <span class="activity-status">✔️</span>
+                      </div>
+                      <div class="activity-subtext">Realmon-DC1</div>
+                    </div>
+                  </div>
+                </li>
 
-          <div class="card patch-compliance">
-            <h3>PATCH COMPLIANCE</h3>
-            <div class="summary-content">
-              <div class="main-number">78%</div>
-              <div class="chart-container-small">
-                <canvas
-                  id="patchComplianceChart"
-                  width="117px"
-                  height="32px"
-                ></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="card recent-activity">
-            <h3>RECENT ACTIVITY</h3>
-            <ul class="activity-list">
-              <li>
-                <div class="activity-left-content">
-                  <i class="fas fa-user-circle session-icon"></i>
-                  <div class="activity-details">
-                    <p>Device rebooted<i class="fas fa-check-circle"></i></p>
-                    <span>Realmon-DC1</span>
+                <li>
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
+                    <div class="activity-details">
+                      <div class="activity-header">
+                        <span class="activity-title"
+                          >User installed application</span
+                        >
+                      </div>
+                      <div class="activity-subtext">onvlinfle9</div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li>
-                <div class="activity-left-content">
-                  <i class="fas fa-user-circle session-icon"></i>
-                  <div class="activity-details">
-                    <p>User installed application</p>
-                    <span>onvlinfle9</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="activity-left-content">
-                  <i class="fas fa-user-circle session-icon"></i>
-                  <div class="activity-details">
-                    <p>Agent updated<i class="fas fa-bell"></i></p>
-                    <span>vganlt v.2.13</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+                </li>
 
-          <div class="card device-performance-metrics">
-            <h3>DEVICE PERFORMANCE METRICS</h3>
-            <div class="metric-item">
-              <div class="metric-text-content">
-                <p>
-                  CPU load (avg) <span class="percentage"><br />18%</span>
-                </p>
-              </div>
-              <canvas id="cpuLoadChart" width="140" height="70"></canvas>
-            </div>
-            <div class="metric-item">
-              <div class="metric-text-content">
-                <p>
-                  RAM Usage <span class="percentage"><br />65%</span>
-                </p>
-              </div>
-              <canvas id="ramUsageChart" width="140" height="70"></canvas>
-            </div>
-          </div>
-
-          <div class="card remote-sessions">
-            <h3>REMOTE SESSIONS</h3>
-            <ul class="session-list">
-              <li>
-                <div class="session-left-content">
-                  <div class="session-details">
-                    <p class="session-user">ft. Admin</p>
-                    <span class="session-server">SERV00l</span>
+                <li>
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
+                    <div class="activity-details">
+                      <div class="activity-header">
+                        <span class="activity-title">Agent updated</span>
+                        <i class="fas fa-bell"></i>
+                      </div>
+                      <div class="activity-subtext">vganlt v.2.13</div>
+                    </div>
                   </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card device-performance-metrics">
+              <h3>DEVICE PERFORMANCE METRICS</h3>
+              <div class="metric-item">
+                <div class="metric-text-content">
+                  <p>
+                    CPU load (avg) <span class="percentage"><br />18%</span>
+                  </p>
                 </div>
-                <span class="session-time">1.4 min</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </main>
+                <canvas id="cpuLoadChart" width="140" height="70"></canvas>
+              </div>
+              <div class="metric-item">
+                <div class="metric-text-content">
+                  <p>
+                    RAM Usage <span class="percentage"><br />65%</span>
+                  </p>
+                </div>
+                <canvas id="ramUsageChart" width="140" height="70"></canvas>
+              </div>
+            </div>
+
+            <div class="card remote-sessions">
+              <h3>REMOTE SESSIONS</h3>
+              <ul class="session-list">
+                <li>
+                  <div class="session-left-content">
+                    <div class="session-details">
+                      <p class="session-user">ft. Admin</p>
+                      <span class="session-server">SERV00l</span>
+                    </div>
+                  </div>
+                  <span class="session-time">1.4 min</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
 
     <script src="script.js"></script>
