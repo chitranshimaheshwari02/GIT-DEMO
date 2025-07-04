@@ -103,7 +103,7 @@ body {
   width: 220px;
   background-color: #263143;
   color: white;
-  margin-left: 60px; /* no gap between mini and main */
+  margin-left: 60px;
   height: 150vh;
   padding-top: 10px;
   position: fixed;
@@ -466,11 +466,7 @@ body {
   padding: 5px;
   z-index: 999;
   margin-left: 10px;
-}
-.system-health .progress-circle svg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  color: #3f51b5;
 }
 
 .system-health .progress-bg {
@@ -677,6 +673,41 @@ body {
 
 .patch-compliance .chart-container-small {
   flex-grow: 1;
+}
+
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+
+.activity-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: #000;
+  margin-right: 8px;
+}
+
+.activity-status {
+  font-size: 14px;
+  color: green;
+}
+
+.activity-subtext {
+  font-size: 12px;
+  color: #888;
 }
 
 .activity-list {
@@ -971,7 +1002,8 @@ body {
 @media (max-width: 992px) {
   .sidebar {
     width: 80px;
-    padding: 20px 0 0 100;
+    padding: 20px 0 0 0;
+    margin-left: 0;
   }
 
   .sidebar .logo {
@@ -1052,7 +1084,7 @@ body {
   }
 
   .sidebar {
-    width: 240px;
+    width: 280px;
     height: auto;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
     position: fixed;
@@ -1062,7 +1094,7 @@ body {
     height: 100vh;
     width: 250px;
     background-color: #1f2a40;
-    z-index: 1000;
+    z-index: 998;
     /* transform: translate(-100%);
     transform: translate 0.3s ease; */
   }
@@ -1245,6 +1277,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    color: #3f51b5;
   }
 
   .main-nav ul {
@@ -1267,7 +1300,7 @@ body {
   }
 
   .top-bar {
-    padding: 10px;
+    padding: 9px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -1275,8 +1308,9 @@ body {
   .top-bar .tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 0;
     margin-bottom: 10px;
+    flex-wrap: nowrap;
   }
 
   .top-bar .tabs span {
@@ -1298,7 +1332,7 @@ body {
   }
   .dashboard-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    /* gap: 15px; */
   }
 
   .dashboard-grid > * {
@@ -1338,5 +1372,40 @@ body {
   .session-list .duration {
     margin-left: 0;
     margin-top: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .user-profile {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0px;
+    flex-wrap: wrap;
+  }
+
+  .progress-circle svg text.progress-text {
+    font-size: 1.3em;
+  }
+
+  .progress-label {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: -5px;
   }
 }

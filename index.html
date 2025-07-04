@@ -14,7 +14,9 @@
   </head>
 
   <body>
-    <div id="menu-toggle" class="hamburger" onclick="toggleNavbar()">&#9776;</div>
+    <div id="menu-toggle" class="hamburger" onclick="toggleNavbar()">
+      &#9776;
+    </div>
     <div class="double-sidebar-container">
       <aside class="mini-sidebar">
         <div class="logo-mini"></div>
@@ -95,21 +97,21 @@
               <span class="tab active">RMM Dashboard</span>
               <span class="tab">Device View</span>
               <span class="tab">Alerts View</span>
-            </div>  
+            </div>
             <div class="tab-content" id="device" style="display: none">
               This is the Device View content.
             </div>
             <div class="tab-content" id="alerts" style="display: none">
               This is the Alerts View content.
             </div>
-          
+
             <div class="user-profile" style="position: relative">
               <i class="fas fa-search"></i>
               <i class="fas fa-bell"></i>
               <div class="dropdown" onclick="toggleDropdown()">
                 <i class="fas fa-user-circle session-icon"></i>
-                <i class="fas fa-caret-down"></i>
                 <span>Pravin Singh</span>
+                <i class="fas fa-caret-down"></i>
 
                 <div class="dropdown-list" id="dropdownList">
                   <ul>
@@ -216,9 +218,14 @@
                 <div class="device-status">
                   <p>
                     Devices up+date:
-                    <span style="color: black; font-size: 1.2em; font-weight: 600;">234</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<span style="color: black; font-size: 1.2em; font-weight: 600;">24</span>
-
+                    <span
+                      style="color: black; font-size: 1.2em; font-weight: 600"
+                      >234</span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span
+                      style="color: black; font-size: 1.2em; font-weight: 600"
+                      >24</span
+                    >
                   </p>
                 </div>
               </div>
@@ -241,31 +248,41 @@
               <h3>RECENT ACTIVITY</h3>
               <ul class="activity-list">
                 <li>
-                  <div class="activity-left-content">
-                    <!-- <i class="fas fa-user-circle session-icon"></i> -->
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
                     <div class="activity-details">
-                      <p> <i class="fas fa-user-circle session-icon"></i>
-                        Device rebooted&nbsp;<i class="fas fa-check-circle"></i>
-                      </p>
-                      <span>Realmon-DC1</span>
+                      <div class="activity-header">
+                        <span class="activity-title">Device rebooted</span>
+                        <span class="activity-status">✔️</span>
+                      </div>
+                      <div class="activity-subtext">Realmon-DC1</div>
                     </div>
                   </div>
                 </li>
+
                 <li>
-                  <div class="activity-left-content">
-                    <!-- <i class="fas fa-user-circle session-icon"></i> -->
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
                     <div class="activity-details">
-                      <p><i class="fas fa-user-circle session-icon"></i>User installed application</p>
-                      <span>onvlinfle9</span>
+                      <div class="activity-header">
+                        <span class="activity-title"
+                          >User installed application</span
+                        >
+                      </div>
+                      <div class="activity-subtext">onvlinfle9</div>
                     </div>
                   </div>
                 </li>
+
                 <li>
-                  <div class="activity-left-content">
-                    <!-- <i class="fas fa-user-circle session-icon"></i> -->
+                  <div class="activity-item">
+                    <i class="fas fa-user-circle session-icon"></i>
                     <div class="activity-details">
-                      <p><i class="fas fa-user-circle session-icon"></i>Agent updated&nbsp;<i class="fas fa-bell"></i></p>
-                      <span>vganlt v.2.13</span>
+                      <div class="activity-header">
+                        <span class="activity-title">Agent updated</span>
+                        <i class="fas fa-bell"></i>
+                      </div>
+                      <div class="activity-subtext">vganlt v.2.13</div>
                     </div>
                   </div>
                 </li>
